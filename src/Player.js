@@ -32,12 +32,12 @@ class Player extends Component {
                 </div>
                 <div className="col-sm">
                   <div className="time-elapsed"></div>
-                  <input type="range" id="progress-bar" name="progress-bar" defaultValue={this.props.percent_elapsed} step="any" onInput={(event) => this.props.userSeek(event)} />
+                  <input type="range" id="progress-bar" name="progress-bar" value={this.props.percent_elapsed} step="any" onInput={(event) => this.props.userSeek(event)} />
                   <div className="time-remaining"></div>
                 </div>
 
                 <div className="col-sm">
-                  <img className="episode-image left" src={this.props.episode_image} alt="episode image" height="100" width="100"/>
+                  <img className="episode-image left" src={this.props.episode_image} alt="episode" height="100" width="100"/>
                   <p className="episode-title">{this.props.episode_title}</p>
                 </div>
               </div>

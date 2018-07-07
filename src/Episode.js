@@ -3,10 +3,6 @@ import './Episode.css';
 
 class Episode extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
         <div className="content">
