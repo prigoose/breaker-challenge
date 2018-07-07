@@ -1,56 +1,23 @@
-.header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  height: 64px;
-  background-color: #fff;
-  border-bottom: 1px solid #d2d3d3;
-}
-
-.content {  
-  position:absolute;
-  top: 100px;
-  left:0px;
-  right:0px;
-  bottom:0px;
-  overflow-y:scroll;        
-}
-
-.player {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  height: 130px;
-  background-color: #d9d9d9;
-  border: 8px solid #3d52c3;
-}
-
 .episode-image {
   padding:5px;
   border:2px solid #d9d9d9;
 }
 
 .episode-title {
-  font-size: 1.5em;
+  /* font-size: 1.5em; */
   font-family: 'Trocchi', serif;
   border: 2px solid #d9d9d9;
   padding: 5px;
 }
 
 .show-title {
-  font-size: 1.3em;
+  /* font-size: 1.3em; */
   font-family: 'Abril Fatface', 'Arial', Times, serif;
   padding: 5px;
 }
 
 .episode-description {
-  font-size: 1em;
+  /* font-size: 1em; */
   font-family: 'Arial';
   border: 2px solid #d9d9d9;
   padding: 5px;

@@ -1,0 +1,43 @@
+#player {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 130px;
+  background-color: #3d3d3d;
+  border: 2px solid #3d52c3;
+}
+
+.controls {
+  padding: 50px;
+}
+
+.control-button {
+  background-color: transparent;
+  border: none;
+  color:white;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  position: relative;
+}
+
+.playback-bar {
+  height: 5px;
+  width: 100%; 
+  background-color: white;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.filled {
+  background-color: black;
+  width: 50%;
+}
+
+.left {
+  float: left;
+}
