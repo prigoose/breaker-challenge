@@ -32,17 +32,34 @@ class App extends Component {
     this.playPause = this.playPause.bind(this);
     this.forward = this.forward.bind(this);
     this.backward = this.backward.bind(this);
+    this.progress=this.progress.bind(this);
+    this.userSeek=this.userSeek.bind(this);
   }
 
-  // STOPPED HERE FOR THE NIGHT
   progress() {
-    let progress = this.state.audio.seek() / this.state.audio.duration();
+    let progress = (this.state.audio.seek() / this.state.audio.duration()) * 100;
     this.setState({
       percent_elapsed: progress,
     })
   }
 
-  playPause() {
+  userSeek(event) {
+    let seconds = (Number(event.target.value) / 100) * this.state.audio.duration();
+    let updatedAudio = this.state.audio.seek(seconds);
+    this.setState({
+      percent_elapsed: event.target.value,
+      audio: updatedAudio
+    })
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      if (this.state.playing) {this.progress()}
+    }, 1000);
+  }
+
+  // break this into multiple functions
+  playPause() { 
     let updatedPlayState = !(this.state.playing);
     if (!this.state.playing) {
       this.setState({
@@ -74,8 +91,24 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Episode show_title={this.state.show_title} episode_title={this.state.episode_title} episode_image={this.state.episode_image} description={this.state.description} playing={this.state.playing}/>
-        <Player episode_title={this.state.episode_title} episode_image={this.state.episode_image} audio={this.state.audio} playing={this.state.playing} playPause={this.playPause} playPauseButton={this.state.playPauseButton} forward={this.forward} backward={this.backward}/>
+        <Episode 
+          show_title={this.state.show_title} 
+          episode_title={this.state.episode_title} 
+          episode_image={this.state.episode_image} 
+          description={this.state.description} 
+          playing={this.state.playing}
+        />
+        <Player 
+          episode_title={this.state.episode_title} 
+          episode_image={this.state.episode_image} 
+          audio={this.state.audio} playing={this.state.playing} 
+          playPause={this.playPause} 
+          playPauseButton={this.state.playPauseButton} 
+          forward={this.forward} 
+          backward={this.backward}
+          percent_elapsed={this.state.percent_elapsed}
+          userSeek={this.userSeek}
+        />
       </div>
     );
   }

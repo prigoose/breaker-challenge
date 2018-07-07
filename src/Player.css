@@ -24,7 +24,7 @@
   position: relative;
 }
 
-.playback-bar {
+/* .playback-bar {
   height: 5px;
   width: 100%; 
   background-color: white;
@@ -35,9 +35,14 @@
 
 .filled {
   background-color: black;
-  width: 50%;
-}
+  width: 0%;
+} */
 
 .left {
   float: left;
 }
+
+/* look into changing thumb color, once I have finished other functionality */
+/* ::-webkit-slider-thumb {
+  box-shadow: dodgerblue;
+} */

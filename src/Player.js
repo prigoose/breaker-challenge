@@ -19,9 +19,6 @@ class Player extends Component {
 
   render() {
 
-    let progress = {
-      width: '10%'
-    }
 
     return (
         <div id="player">
@@ -35,9 +32,7 @@ class Player extends Component {
                 </div>
                 <div className="col-sm">
                   <div className="time-elapsed"></div>
-                  <div className="playback-bar">
-                    <div className="playback-bar filled" style={progress}></div>
-                  </div>
+                  <input type="range" id="progress-bar" name="progress-bar" defaultValue={this.props.percent_elapsed} step="any" onInput={(event) => this.props.userSeek(event)} />
                   <div className="time-remaining"></div>
                 </div>
 

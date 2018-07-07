@@ -9,6 +9,9 @@
 # production
 /build
 
+# scratchwork & old work that I may want to refer to
+removed.js
+
 # misc
 .DS_Store
 .env.local
