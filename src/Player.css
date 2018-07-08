@@ -5,13 +5,17 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  height: 130px;
+  height: 80px;
   background-color: #3d3d3d;
-  border: 2px solid #3d52c3;
 }
 
-.controls {
-  padding: 50px;
+/* .controls {
+  padding: 10px;
+} */
+
+.buttons {
+  display: flex;
+  justify-content: center;
 }
 
 .control-button {
@@ -22,6 +26,15 @@
   min-width: 32px;
   height: 32px;
   position: relative;
+}
+
+#progress-bar {
+  width: 100%;
+}
+
+#player-episode-title {
+  color: white;
+  font-style: italic;
 }
 
 /* .playback-bar {

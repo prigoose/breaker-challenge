@@ -26,7 +26,9 @@ class App extends Component {
       audio: stream,
       playing: false,
       playPauseButton: 'fa-play',
-      percent_elapsed: 0
+      percent_elapsed: 0,
+      date_published: '2017-12-11',
+      duration: '1 hour 15 minutes'
     };
     
     this.playPause = this.playPause.bind(this);
@@ -97,6 +99,8 @@ class App extends Component {
           episode_image={this.state.episode_image} 
           description={this.state.description} 
           playing={this.state.playing}
+          date_published={this.state.date_published}
+          duration={this.state.duration}
         />
         <Player 
           episode_title={this.state.episode_title} 
