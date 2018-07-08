@@ -10,6 +10,7 @@ class Episode extends Component {
           <div className="jumbotron">
             <div className="row center">
               <div className="col-md-12">
+              <button className="edit right">Edit</button>
                 <p className="show-title episode-page-show-title">{this.props.show_title}</p>
               </div>
             </div>

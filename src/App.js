@@ -28,7 +28,8 @@ class App extends Component {
       playPauseButton: 'fa-play',
       percent_elapsed: 0,
       date_published: '2017-12-11',
-      duration: '1 hour 15 minutes'
+      duration: '1 hour 15 minutes',
+      edit: false
     };
     
     this.playPause = this.playPause.bind(this);
@@ -36,6 +37,15 @@ class App extends Component {
     this.backward = this.backward.bind(this);
     this.progress=this.progress.bind(this);
     this.userSeek=this.userSeek.bind(this);
+    this.toggleEdit=this.toggleEdit.bind(this);
+  }
+
+  // need to test
+  toggleEdit() {
+    let oppositeEdit = !this.state.edit;
+    this.setState({
+      edit: oppositeEdit
+    })
   }
 
   progress() {
@@ -80,6 +90,7 @@ class App extends Component {
 
   forward() {
     let currentTime = this.state.audio.seek();
+    // console.log(currentTime)
     this.state.audio.seek(currentTime + 5);
   }
 
@@ -101,6 +112,8 @@ class App extends Component {
           playing={this.state.playing}
           date_published={this.state.date_published}
           duration={this.state.duration}
+          toggleEdit={this.toggleEdit}
+          edit={this.state.edit}
         />
         <Player 
           episode_title={this.state.episode_title} 

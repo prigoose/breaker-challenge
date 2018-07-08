@@ -7,6 +7,7 @@
   z-index: 1000;
   height: 80px;
   background-color: #3d3d3d;
+  padding-top: 4px;
 }
 
 /* .controls {
@@ -28,14 +29,25 @@
   position: relative;
 }
 
+.control-button:hover {
+  cursor: pointer;
+}
+
 #progress-bar {
-  width: 100%;
+  width: 70%;
 }
 
 #player-episode-title {
   color: white;
   font-style: italic;
+  font-size: .8em;
+  padding: 5%;
 }
+
+/* how do I move image down? padding doesn't work here */
+/* #player-episode-image {
+  padding: 5%;
+} */
 
 /* .playback-bar {
   height: 5px;
@@ -59,3 +71,19 @@
 /* ::-webkit-slider-thumb {
   box-shadow: dodgerblue;
 } */
+
+.time-elapsed, .time-remaining {
+  color: white;
+}
+
+.fa-heart:hover {
+  color: red;
+}
+
+.fa-comment:hover {
+  color: lightblue;
+}
+
+.fa-share-alt:hover {
+  color: green;
+}
