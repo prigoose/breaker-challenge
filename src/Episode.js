@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import moment from 'moment';
+import EditButton from './Edit-Button.js';
+import SaveButton from './Save-Button.js';
+import EpisodeImage from './Episode-Image.js';
+import ImageUpload from './Episode-Image-Edit.js';
+import EpisodeTitle from './Episode-Title.js';
+import EpisodeTitleEdit from './Episode-Title-Edit.js';
+import EpisodeDescription from './Episode-Description.js';
+import EpisodeDescriptionEdit from './Episode-Description-Edit.js';
 import './Episode.css';
 
 class Episode extends Component {
 
   render() {
+
     return (
         <div className="content container">
           <div className="jumbotron">
             <div className="row center">
               <div className="col-md-12">
-              <button className="edit right">Edit</button>
+              <button className="edit right"><Route exact path='/' component={EditButton} /><Route path='/edit' component={SaveButton} /></button>
                 <p className="show-title episode-page-show-title">{this.props.show_title}</p>
               </div>
             </div>
             <div className="row">
               <div className="col-md-6">
-                <img className="episode-image" src={this.props.episode_image} alt="episode" height="300" width="300"/>
+              <Route exact path='/' render={routeProps => <EpisodeImage {...routeProps} episode_image={this.props.episode_image}/>} />
+              <Route path='/edit' render={routeProps => <ImageUpload {...routeProps} episode_image={this.props.episode_image}/>} />
               </div>
               <div className="col-md-6">
                 <div className="basic-episode-info">
-                  <p className="episode-title episode-page-episode-title">{this.props.episode_title}</p>
+                  <Route exact path='/' render={routeProps => <EpisodeTitle {...routeProps} episode_title={this.props.episode_title}/>} />
+                  <Route path='/edit' render={routeProps => <EpisodeTitleEdit {...routeProps} episode_title={this.props.episode_title}/>} />
                   <p><span className="episode-length">{this.props.duration} • </span><span>{moment(this.props.date_published, "YYYYMMDD").fromNow()}</span></p>
                 </div>
                 <div className="episode-description">
-                  <p>{this.props.description}</p>
+                  <Route exact path='/' render={routeProps => <EpisodeDescription {...routeProps} description={this.props.description}/>} />
+                  <Route path='/edit' render={routeProps => <EpisodeDescriptionEdit {...routeProps} description={this.props.description}/>} />
                 </div>
               </div>
             </div>

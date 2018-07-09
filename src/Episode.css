@@ -27,15 +27,15 @@
   margin: 20px;
 }
 
-.img {
-  max-width: 100%;
-  height: auto;
-}
-
 .episode-page-show-title {
   font-size: 1.5em;
 }
 
-.episode-page-episode-title {
-    font-size: 1.3em;
+.episode-description {
+  /* font-size: 1em; */
+  font-family: 'Arial';
+  border: 2px solid #d9d9d9;
+  padding: 5px;
+  background: white;
+  margin-top: 5px;
 }
