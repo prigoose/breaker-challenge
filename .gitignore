@@ -10,7 +10,7 @@
 /build
 
 # scratchwork & old work that I may want to refer to
-removed.js
+/internal
 
 # misc
 .DS_Store

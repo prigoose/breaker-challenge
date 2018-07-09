@@ -5,7 +5,7 @@ class SaveButton extends Component {
 
   render() {
     return (
-      <Link to="/">Save</Link>
+      <Link to="/" onClick={this.props.save}>Save</Link>
     );
   }
 }

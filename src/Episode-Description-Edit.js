@@ -5,7 +5,7 @@ class EpisodeDescriptionEdit extends Component {
 
   render() {
     return (
-      <textarea rows="6" defaultValue={this.props.description}></textarea>
+      <textarea rows="6" defaultValue={this.props.description} onBlur={(e) => this.props.editEpisodeDescription(e)} ></textarea>
     );
   }
 }

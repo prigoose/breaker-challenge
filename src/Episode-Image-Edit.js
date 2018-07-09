@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Episode-Image.css';
 
-class ImageUpload extends React.Component {
+class ImageUpload extends Component {
   constructor(props) {
     super(props);
     this.state = {file: '',imagePreviewUrl: ''};
@@ -22,7 +22,6 @@ class ImageUpload extends React.Component {
       });
     }
 
-
     // add code to upload image to S3, and then to send patch request
   }
 
@@ -30,7 +29,7 @@ class ImageUpload extends React.Component {
     let imagePreviewUrl = this.state.imagePreviewUrl || this.props.episode_image;
     let imagePreview = null;
     if (imagePreviewUrl) {
-      imagePreview = (<img src={imagePreviewUrl} height="300" width="300" />);
+      imagePreview = (<img src={imagePreviewUrl} height="300" width="300" alt="episode" />);
     } else {
       imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
     }
@@ -42,7 +41,7 @@ class ImageUpload extends React.Component {
         </div>
         <form>
           <input className="fileInput" 
-            type="file" 
+            type="file" accept="image/*"
             onChange={(e)=>this._handleImageChange(e)} />
         </form>
       </div>
