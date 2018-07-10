@@ -11,6 +11,6 @@
 ### Next steps
 Given more time, the next steps I would take are: 
 1. Implementing Redux (currently, state variables are being passed down from App).
-2. Adding tests!
+2. Adding tests.
 3. Implementing SASS to keep CSS organized.
 4. Adding a 'cancel' button should the user decide not to save their changes to the podcast info.
