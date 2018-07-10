@@ -13,44 +13,60 @@ import './Episode.css';
 
 class Episode extends Component {
 
+  formatDuration() {
+    let totalSeconds = this.props.duration;
+    let hours = Math.floor(totalSeconds / 3600);
+    let minutes = Math.floor((totalSeconds-(hours * 3600)) / 60);
+    if (minutes < 10) {minutes = '0' + minutes} 
+   
+    this.formattedDuration = `${minutes} minutes`;
+    if (hours > 1) { 
+      this.formattedDuration = `${hours} hours, ${this.formattedDuration}`;
+    }
+  }
+
   render() {
+//rerender
+    this.formatDuration();
 
     return (
         <div className="content container">
           <div className="jumbotron">
             <div className="row center">
               <div className="col-md-12">
-              <button className="edit right">
-                <Route exact path='/' component={EditButton} />
-                <Route 
-                  path='/edit' 
-                  render={routeProps => 
-                    <SaveButton {...routeProps} save={this.props.save}/>} 
-                />
-              </button>
+                <button className="edit right">
+                  <Route exact path='/' component={EditButton} />
+                  <Route 
+                    path='/edit' 
+                    render={routeProps => 
+                      <SaveButton {...routeProps} save={this.props.save}/>} 
+                  />
+                </button>
                 <p className="show-title episode-page-show-title">{this.props.show_title}</p>
               </div>
             </div>
             <div className="row">
               <div className="col-md-6">
-              <Route 
-                exact path='/' 
-                render={routeProps => 
-                  <EpisodeImage {...routeProps} episode_image={this.props.episode_image}/>} 
+                <Route 
+                  exact path='/' 
+                  render={routeProps => 
+                    <EpisodeImage {...routeProps} 
+                      episode_image={this.props.episode_image}/>} 
+                    />
+                <Route 
+                  path='/edit' 
+                  render={routeProps => 
+                    <ImageUpload {...routeProps} episode_image={this.props.episode_image}/>} 
                 />
-              <Route 
-                path='/edit' 
-                render={routeProps => 
-                  <ImageUpload {...routeProps} episode_image={this.props.episode_image}/>} 
-              />
               </div>
               <div className="col-md-6">
                 <div className="basic-episode-info">
                   <Route 
                     exact path='/' 
                     render={routeProps => 
-                      <EpisodeTitle {...routeProps} episode_title={this.props.episode_title}/>} 
-                  />
+                      <EpisodeTitle {...routeProps} 
+                        episode_title={this.props.episode_title}/>} 
+                      />
                   <Route 
                     path='/edit' 
                     render={
@@ -61,7 +77,10 @@ class Episode extends Component {
                         />
                     }
                   />
-                  <p><span className="episode-length">{this.props.duration} • </span><span>{moment(this.props.date_published, "YYYYMMDD").fromNow()}</span></p>
+                  <p>
+                    <span className="episode-length">{this.formattedDuration} • </span>
+                    <span>{moment(this.props.date_published, "YYYYMMDD").fromNow()}</span>
+                  </p>
                 </div>
                 <div className="episode-description">
                   <Route 

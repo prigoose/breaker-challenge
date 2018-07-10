@@ -10,9 +10,12 @@
   padding-top: 4px;
 }
 
-/* .controls {
-  padding: 10px;
-} */
+#player-episode-title {
+  color: white;
+  font-style: italic;
+  font-size: .8em;
+  padding: 5%;
+}
 
 .buttons {
   display: flex;
@@ -33,49 +36,6 @@
   cursor: pointer;
 }
 
-#progress-bar {
-  width: 70%;
-}
-
-#player-episode-title {
-  color: white;
-  font-style: italic;
-  font-size: .8em;
-  padding: 5%;
-}
-
-/* how do I move image down? padding doesn't work here */
-/* #player-episode-image {
-  padding: 5%;
-} */
-
-/* .playback-bar {
-  height: 5px;
-  width: 100%; 
-  background-color: white;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.filled {
-  background-color: black;
-  width: 0%;
-} */
-
-.left {
-  float: left;
-}
-
-/* look into changing thumb color, once I have finished other functionality */
-/* ::-webkit-slider-thumb {
-  box-shadow: dodgerblue;
-} */
-
-.time-elapsed, .time-remaining {
-  color: white;
-}
-
 .fa-heart:hover {
   color: red;
 }
@@ -87,3 +47,16 @@
 .fa-share-alt:hover {
   color: green;
 }
+
+#progress-bar {
+  width: 70%;
+}
+
+.time-elapsed, .time-remaining {
+  color: white;
+}
+
+.left {
+  float: left;
+}
+

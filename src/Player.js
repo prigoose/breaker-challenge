@@ -17,11 +17,9 @@ class Player extends Component {
     this.props.audio.pause();
   }
 
-  render() {
-    
-    // TO DO: pull out time formatting into separate method
-    let formattedTimeElapsed = '00:00:00';
-    let formattedTimeRemaining = '';
+  formatTime() {
+    this.formattedTimeElapsed = '00:00:00';
+    this.formattedTimeRemaining = '';
     
     if (this.props.audio !== null && this.props.audio.state() === 'loaded') {
       let totalSecondsElapsed = Math.floor(this.props.audio.seek());
@@ -30,16 +28,21 @@ class Player extends Component {
       let minutesElapsed = Math.floor((totalSecondsElapsed-(hoursElapsed * 3600)) / 60);
       if (minutesElapsed < 10) {minutesElapsed = '0' + minutesElapsed}
       let secondsElapsed = totalSecondsElapsed % 60;
-      formattedTimeElapsed = `${hoursElapsed}:${minutesElapsed}:${secondsElapsed}`;
-
+      this.formattedTimeElapsed = `${hoursElapsed}:${minutesElapsed}:${secondsElapsed}`;
+  
       let totalSecondsRemaining = Math.floor(this.props.audio.duration()) - totalSecondsElapsed;
       let hoursRemaining = Math.floor(totalSecondsRemaining / 3600);
       if (hoursRemaining < 10) {hoursRemaining = '0' + hoursRemaining}
       let minutesRemaining = Math.floor((totalSecondsRemaining-(hoursRemaining * 3600)) / 60);
       if (minutesRemaining < 10) {minutesRemaining = '0' + minutesRemaining}
       let secondsRemaining = totalSecondsRemaining % 60;
-      formattedTimeRemaining = `${hoursRemaining}:${minutesRemaining}:${secondsRemaining}`;
+      this.formattedTimeRemaining = `${hoursRemaining}:${minutesRemaining}:${secondsRemaining}`;
       }
+  }
+
+  render() {
+    
+    this.formatTime();
 
     return (
         <div id="player">
@@ -57,9 +60,9 @@ class Player extends Component {
                   <button id="play-pause" className={`control-button fa ${this.props.playPauseButton}`} onClick={this.play}></button>
                   <button id="skip-forward-5" className="control-button fa fa-forward" onClick={this.props.forward}></button>
                 </div>
-                  <span className="time-elapsed">{formattedTimeElapsed}</span>
+                  <span className="time-elapsed">{this.formattedTimeElapsed}</span>
                   <input type="range" id="progress-bar" name="progress-bar" value={this.props.percent_elapsed} step="any" onInput={(event) => this.props.userSeek(event)} />
-                  <span className="time-remaining">{formattedTimeRemaining}</span>
+                  <span className="time-remaining">{this.formattedTimeRemaining}</span>
               </div>
 
               <div className="d-none d-md-block col-md-3">

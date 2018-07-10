@@ -37,6 +37,22 @@ class App extends Component {
     this.editEpisodeTitle=this.editEpisodeTitle.bind(this);
     this.editEpisodeDescription=this.editEpisodeDescription.bind(this);
   }
+  
+  // --> METHODS FOR EDITING THE EPISODE INFO <-- //
+
+  editEpisodeTitle(event) {
+    event.preventDefault();
+    this.setState({
+      episode_title_user_edit: event.target.value
+    })
+  }
+
+  editEpisodeDescription(event) {
+    event.preventDefault();
+    this.setState({
+      description_user_edit: event.target.value
+    })
+  }
 
   save() {
     let data = {};
@@ -69,20 +85,35 @@ class App extends Component {
   });
   }
 
-  editEpisodeTitle(event) {
-    event.preventDefault();
-    this.setState({
-      episode_title_user_edit: event.target.value
-    })
-  }
+  // --> METHODS FOR NAVIGATING THE AUDIO IN THE PLAYER BAR <-- //
 
-  editEpisodeDescription(event) {
-    event.preventDefault();
-    this.setState({
-      description_user_edit: event.target.value
-    })
+  playPause() { 
+    let updatedPlayState = !(this.state.playing);
+    if (!this.state.playing) {
+      this.setState({
+        playing: updatedPlayState,
+        playPauseButton: 'fa-pause'
+      })
+      this.state.audio.play();
+    } else if (this.state.playing) {
+      this.setState({
+        playing: updatedPlayState,
+        playPauseButton: 'fa-play'
+      })
+      this.state.audio.pause();
+    }
   }
-
+  
+  forward() {
+    let currentTime = this.state.audio.seek();
+    this.state.audio.seek(currentTime + 5);
+  }
+  
+  backward() {
+    let currentTime = this.state.audio.seek();
+    this.state.audio.seek(currentTime - 5);
+  }
+  
   progress() {
     let progress = (this.state.audio.seek() / this.state.audio.duration()) * 100;
     this.setState({
@@ -132,37 +163,9 @@ class App extends Component {
       }
     )
   }
-
-  // break this into multiple functions
-  playPause() { 
-    let updatedPlayState = !(this.state.playing);
-    if (!this.state.playing) {
-      this.setState({
-        playing: updatedPlayState,
-        playPauseButton: 'fa-pause'
-      })
-      this.state.audio.play();
-    } else if (this.state.playing) {
-      this.setState({
-        playing: updatedPlayState,
-        playPauseButton: 'fa-play'
-      })
-      this.state.audio.pause();
-    }
-  }
-
-  forward() {
-    let currentTime = this.state.audio.seek();
-    this.state.audio.seek(currentTime + 5);
-  }
-
-  backward() {
-    let currentTime = this.state.audio.seek();
-    this.state.audio.seek(currentTime - 5);
-  }
-
+  
   render() {
-
+    
     return (
       <div>
         <Header />
