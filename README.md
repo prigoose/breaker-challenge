@@ -9,13 +9,13 @@
 3. `npm start`
 
 ### Libraries and Technologies used
-* React
-* React Router (to navigate between Edit and Save pages)
-* Moment (to format the uploaded date)
-* Howler (to set up the audio)
-* Axios and jQuery (for http requests)
-* Express (for server)
-* ReactS3Uploader (for allowing users to upload images)
+* [React](https://reactjs.org/)
+* [React Router](https://www.npmjs.com/package/react-router-dom) (to navigate between Edit and Save pages)
+* [Moment](https://momentjs.com/) (to format the uploaded date)
+* [Howler](https://howlerjs.com/) (to set up the audio)
+* [Axios](https://www.npmjs.com/package/axios) and [jQuery](https://jquery.com/) (for http requests)
+* [Express](https://expressjs.com/) (for server)
+* [ReactS3Uploader](https://www.npmjs.com/package/react-s3-uploader) (for allowing users to upload images)
 
 ### Next steps
 Given more time, the next steps I would take are: 
