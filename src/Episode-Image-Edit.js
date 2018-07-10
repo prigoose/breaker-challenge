@@ -23,8 +23,6 @@ class ImageUpload extends Component {
         imagePreviewUrl: reader.result // reader.result is the DataURl
       });
     }
-
-    // add code to upload image to S3, and then to send patch request
   }
 
   render() {
@@ -42,10 +40,10 @@ class ImageUpload extends Component {
           {imagePreview}
         </div>
         <form>
-          {/* <input className="fileInput" 
+          <input className="fileInput" 
             type="file" accept="image/*"
-            onChange={(e)=>this._handleImageChange(e)} /> */}
-            <ReactS3Uploader
+            onChange={(e)=>this._handleImageChange(e)} />
+            {/* <ReactS3Uploader
               signingUrl="/s3/sign"
               signingUrlMethod="GET"
               accept="image/*"
@@ -56,9 +54,7 @@ class ImageUpload extends Component {
               onFinish={this.onUploadFinish}
               server="http://localhost:4000"
               inputRef={cmp => this.uploadInput = cmp}
-              //onChange is being overridden by library's onChange
-              onChange={(e)=>this._handleImageChange(e)}
-            />
+            /> */}
         </form>
       </div>
     )

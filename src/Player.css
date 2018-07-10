@@ -60,3 +60,7 @@
   float: left;
 }
 
+/* To get rid of Chrome's blue box highlighting on icons */
+:focus {
+  outline: none !important;
+}

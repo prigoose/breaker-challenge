@@ -36,6 +36,7 @@ class App extends Component {
     this.save=this.save.bind(this);
     this.editEpisodeTitle=this.editEpisodeTitle.bind(this);
     this.editEpisodeDescription=this.editEpisodeDescription.bind(this);
+    this.editImage=this.editImage.bind(this);
   }
   
   // --> METHODS FOR EDITING THE EPISODE INFO <-- //
@@ -51,6 +52,12 @@ class App extends Component {
     event.preventDefault();
     this.setState({
       description_user_edit: event.target.value
+    })
+  }
+
+  editImage(image_url) {
+    this.setState({
+      episode_image_user_edit: image_url
     })
   }
 
@@ -180,6 +187,7 @@ class App extends Component {
           save={this.save}
           editEpisodeTitle={this.editEpisodeTitle}
           editEpisodeDescription={this.editEpisodeDescription}
+          editImage={this.editImage}
         />
         <Player 
           episode_title={this.state.episode_title} 
