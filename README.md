@@ -8,6 +8,15 @@
 2. `npm run server`
 3. `npm start`
 
+### Libraries and Technologies used
+-React
+-React Router (to navigate between Edit and Save pages)
+-Moment (to format the uploaded date)
+-Howler (to set up the audio)
+-Axios and jQuery (for http requests)
+-Express (for server)
+-ReactS3Uploader (for allowing users to upload images)
+
 ### Next steps
 Given more time, the next steps I would take are: 
 1. Implementing Redux (currently, state variables are being passed down from App).
