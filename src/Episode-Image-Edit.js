@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Episode-Image.css';
 
+var ReactS3Uploader = require('react-s3-uploader');
+
 class ImageUpload extends Component {
   constructor(props) {
     super(props);
@@ -40,9 +42,23 @@ class ImageUpload extends Component {
           {imagePreview}
         </div>
         <form>
-          <input className="fileInput" 
+          {/* <input className="fileInput" 
             type="file" accept="image/*"
-            onChange={(e)=>this._handleImageChange(e)} />
+            onChange={(e)=>this._handleImageChange(e)} /> */}
+            <ReactS3Uploader
+              signingUrl="/s3/sign"
+              signingUrlMethod="GET"
+              accept="image/*"
+              s3path="/uploads/"
+              onSignedUrl={this.onSignedUrl}
+              onProgress={this.onUploadProgress}
+              onError={this.onUploadError}
+              onFinish={this.onUploadFinish}
+              server="http://localhost:4000"
+              inputRef={cmp => this.uploadInput = cmp}
+              //onChange is being overridden by library's onChange
+              onChange={(e)=>this._handleImageChange(e)}
+            />
         </form>
       </div>
     )

@@ -3,8 +3,8 @@ import { Howl } from 'howler';
 import Header from './Header.js';
 import Episode from './Episode.js';
 import Player from './Player.js';
+import $ from "jquery";
 import './App.css';
-// const axios = require('axios');
 
 class App extends Component {
 
@@ -46,7 +46,34 @@ class App extends Component {
   }
 
   save() {
-    console.log('in save fxn')
+    let data = {};
+    if (this.state.episode_title_user_edit !== null && this.state.episode_title_user_edit !== this.state.episode_title) {
+      data.episode_title = this.state.episode_title_user_edit;
+    }
+    if (this.state.description_user_edit !== null && this.state.description_user_edit !== this.state.description) {
+      data.episode_title = this.state.description_user_edit;
+    }
+    if (this.state.episode_image_user_edit !== null && this.state.episode_image_user_edit !== this.state.episode_image) {
+      data.episode_title = this.state.episode_image_user_edit;
+    }
+    $.ajax({
+      headers : {
+          'Accept' : 'application/json',
+          'Content-Type' : 'application/json'
+      },
+      url : 'http://localhost:4000/episode/29314799',
+      type : 'PATCH',
+      data : JSON.stringify(data),
+      success : function(response) {
+          console.log('Response from server: ', response);
+      },
+      error : function(jqXHR, textStatus, errorThrown) {
+          console.log("The following error occured: " + textStatus, errorThrown);
+      },
+      complete : function() {
+          console.log("Venue Patch Ran");
+      }
+  });
   }
 
   editEpisodeTitle(event) {
@@ -142,8 +169,6 @@ class App extends Component {
   }
 
   render() {
-
-    console.log(this.state)
 
     return (
       <div>
