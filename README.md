@@ -1,4 +1,4 @@
-[Imgur](https://i.imgur.com/heQu747.png)
+![Screenshot](https://i.imgur.com/heQu747.png)
 
 ### Video
 [Watch the video here](https://drive.google.com/file/d/182461LVCsqPEuZf41HizSVr8hcx9LuNg/view)
