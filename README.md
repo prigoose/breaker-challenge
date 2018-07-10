@@ -1,4 +1,4 @@
-![screenshot!](https://imgur.com/a/BZOPnLE)
+![screenshot](https://imgur.com/heQu747)
 
 ### Video
 [Watch the video here](https://drive.google.com/file/d/182461LVCsqPEuZf41HizSVr8hcx9LuNg/view)
