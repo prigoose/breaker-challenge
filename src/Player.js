@@ -23,7 +23,7 @@ class Player extends Component {
     let formattedTimeElapsed = '00:00:00';
     let formattedTimeRemaining = '';
     
-    if (this.props.audio.state() === 'loaded') {
+    if (this.props.audio !== null && this.props.audio.state() === 'loaded') {
       let totalSecondsElapsed = Math.floor(this.props.audio.seek());
       let hoursElapsed = Math.floor(totalSecondsElapsed / 3600);
       if (hoursElapsed < 10) {hoursElapsed = '0' + hoursElapsed}
@@ -46,12 +46,12 @@ class Player extends Component {
           <div className="container">
             <div className="row vertical-center">
 
-              <div className="col-md-2">
+              <div className="d-none d-md-block col-md-3">
                 <img className="player-episode-image left" src={this.props.episode_image} alt="episode" height="70" width="70"/>
                 <p id="player-episode-title">{this.props.episode_title}</p>
               </div>
 
-              <div className="controls col-md-8">
+              <div className="controls col-md-6">
                 <div className="buttons">
                   <button id="skip-backward-5" className="control-button fa fa-backward" onClick={this.props.backward}></button>
                   <button id="play-pause" className={`control-button fa ${this.props.playPauseButton}`} onClick={this.play}></button>
@@ -62,7 +62,7 @@ class Player extends Component {
                   <span className="time-remaining">{formattedTimeRemaining}</span>
               </div>
 
-              <div className="col-md-2">
+              <div className="d-none d-md-block col-md-3">
                 <button id="like" className="control-button fa fa-heart"></button>
                 <button id="comment" className="control-button fa fa-comment"></button>
                 <button id="share" className="control-button fa fa-share-alt"></button>
