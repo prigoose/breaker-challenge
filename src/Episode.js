@@ -26,7 +26,7 @@ class Episode extends Component {
   }
 
   render() {
-//rerender
+
     this.formatDuration();
 
     return (
