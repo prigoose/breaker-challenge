@@ -1,7 +1,4 @@
-![Screenshot](https://i.imgur.com/heQu747.png)
-
-### Video
-[Watch the video here](https://drive.google.com/file/d/182461LVCsqPEuZf41HizSVr8hcx9LuNg/view)
+![Screenshot](https://i.imgur.com/seDsLAy.png)
 
 ### Setup
 1. `npm install`
