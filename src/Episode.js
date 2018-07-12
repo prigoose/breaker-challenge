@@ -46,7 +46,7 @@ class Episode extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-md-5 offset-md-1">
+              <div className="col-lg-5 offset-lg-1">
                 <Route 
                   exact path='/' 
                   render={routeProps => 
@@ -59,7 +59,7 @@ class Episode extends Component {
                     <ImageUpload {...routeProps} episode_image={this.props.episode_image}/>} 
                 />
               </div>
-              <div className="col-md-6">
+              <div className="col-lg-6">
                 <div>
                   <Route 
                     exact path='/' 

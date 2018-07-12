@@ -5,7 +5,7 @@ class EpisodeDescription extends Component {
 
   render() {
     return (
-      <p class="offblack text-large">{this.props.description}</p>
+      <p className="offblack text-large">{this.props.description}</p>
     );
   }
 }
