@@ -5,7 +5,7 @@ class EditButton extends Component {
 
   render() {
     return (
-      <Link to="/edit">Edit</Link>
+      <Link to="/edit" style={{ textDecoration: 'none' }}>Edit</Link>
     );
   }
 }

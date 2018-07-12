@@ -18,7 +18,7 @@ class Player extends Component {
   }
 
   formatTime() {
-    this.formattedTimeElapsed = '00:00:00';
+    this.formattedTimeElapsed = '00:00';
     this.formattedTimeRemaining = '';
     
     if (this.props.audio !== null && this.props.audio.state() === 'loaded') {
@@ -29,7 +29,11 @@ class Player extends Component {
       if (minutesElapsed < 10) {minutesElapsed = '0' + minutesElapsed}
       let secondsElapsed = totalSecondsElapsed % 60;
       if (secondsElapsed < 10) {secondsElapsed = '0' + secondsElapsed}
-      this.formattedTimeElapsed = `${hoursElapsed}:${minutesElapsed}:${secondsElapsed}`;
+      if (this.props.audio.duration() < 3600) {
+        this.formattedTimeElapsed = `${minutesElapsed}:${secondsElapsed}`;
+      } else {
+        this.formattedTimeElapsed = `${hoursElapsed}:${minutesElapsed}:${secondsElapsed}`;
+      }
   
       let totalSecondsRemaining = Math.floor(this.props.audio.duration()) - totalSecondsElapsed;
       let hoursRemaining = Math.floor(totalSecondsRemaining / 3600);
@@ -38,8 +42,12 @@ class Player extends Component {
       if (minutesRemaining < 10) {minutesRemaining = '0' + minutesRemaining}
       let secondsRemaining = totalSecondsRemaining % 60;
       if (secondsRemaining < 10) {secondsRemaining = '0' + secondsRemaining}
-      this.formattedTimeRemaining = `${hoursRemaining}:${minutesRemaining}:${secondsRemaining}`;
+      if (this.props.audio.duration() < 3600) {
+        this.formattedTimeRemaining = `${minutesRemaining}:${secondsRemaining}`;
+      } else {
+        this.formattedTimeRemaining = `${hoursRemaining}:${minutesRemaining}:${secondsRemaining}`;
       }
+    }
   }
 
   render() {

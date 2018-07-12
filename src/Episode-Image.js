@@ -5,7 +5,7 @@ class EpisodeImage extends Component {
 
   render() {
     return (
-      <img className="episode-image" src={this.props.episode_image} alt="episode" height="300" width="300"/>
+      <img className="white-border shadow-sm" src={this.props.episode_image} alt="episode" height="300" width="300"/>
     );
   }
 }

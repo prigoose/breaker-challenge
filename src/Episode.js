@@ -30,11 +30,11 @@ class Episode extends Component {
     this.formatDuration();
 
     return (
-        <div className="content container">
-          <div className="jumbotron">
-            <div className="row center">
+      <div className="content container">
+      <div className="jumbotron border shadow">
+            <div className="row">
               <div className="col-md-12">
-                <button className="edit right">
+                <button className="btn shadow-sm right">
                   <Route exact path='/' component={EditButton} />
                   <Route 
                     path='/edit' 
@@ -42,11 +42,11 @@ class Episode extends Component {
                       <SaveButton {...routeProps} save={this.props.save}/>} 
                   />
                 </button>
-                <p className="show-title episode-page-show-title">{this.props.show_title}</p>
+                <h1 className="display-3"><span className="bg-white">&nbsp;{this.props.show_title}&nbsp;</span></h1>
               </div>
             </div>
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-5 offset-md-1">
                 <Route 
                   exact path='/' 
                   render={routeProps => 
@@ -60,7 +60,7 @@ class Episode extends Component {
                 />
               </div>
               <div className="col-md-6">
-                <div className="basic-episode-info">
+                <div>
                   <Route 
                     exact path='/' 
                     render={routeProps => 
@@ -77,7 +77,7 @@ class Episode extends Component {
                         />
                     }
                   />
-                  <p>
+                  <p className="offblack">
                     <span className="episode-length">{this.formattedDuration} • </span>
                     <span>{moment(this.props.date_published, "YYYYMMDD").fromNow()}</span>
                   </p>

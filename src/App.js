@@ -4,7 +4,6 @@ import Header from './Header.js';
 import Episode from './Episode.js';
 import Player from './Player.js';
 import $ from "jquery";
-import './App.css';
 
 class App extends Component {
 
