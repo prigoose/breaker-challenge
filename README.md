@@ -1,7 +1,7 @@
 ![Screenshot](https://i.imgur.com/seDsLAy.png)
 
 ### Video
-[Watch the updated video here](https://drive.google.com/file/d/1aqqlVcgB7gEftU2mKmBG3Mq67CHG6mLT/view)
+[Click here to watch a video demonstration](https://drive.google.com/file/d/1aqqlVcgB7gEftU2mKmBG3Mq67CHG6mLT/view)
 
 
 ### Setup
