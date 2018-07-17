@@ -30,7 +30,7 @@ class Episode extends Component {
     this.formatDuration();
 
     return (
-      <div className="content container">
+      <div className="content container-fluid">
       <div className="jumbotron border shadow">
             <div className="row">
               <div className="col-md-12">

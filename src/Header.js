@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
         <div className="header vertical-center">
-          <div className="container">
+          <div className="container-fluid">
             <a href="/">
             <img 
               id="logo" 

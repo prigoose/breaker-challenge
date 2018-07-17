@@ -56,7 +56,7 @@ class Player extends Component {
 
     return (
         <div id="player">
-          <div className="container">
+          <div className="container-fluid">
             <div className="row vertical-center">
 
               <div className="d-none d-md-block col-md-3">
